@@ -1,0 +1,54 @@
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    height: 100px;
+    border-bottom: 2px solid black ;
+    box-shadow: 0 0 20px 10px rgba(0,0,0,.15);
+    opacity: 1;
+}
+.Spacer {
+    flex: 1;
+}
+
+.Navbar ul li {
+    margin: 20px 40px;
+    list-style-type: none;
+    font-family: 'Langar';
+    font-size: 30px;
+}
+
+.Navbar ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.Navbar h1 {
+    margin: 20px;
+    font-family: 'Langar';
+    font-size: 50px;
+}
+
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
