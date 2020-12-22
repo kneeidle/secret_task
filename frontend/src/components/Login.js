@@ -9,15 +9,8 @@ function App(props) {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
-  
-  useEffect(() => {  
+  const [data, setData] = useState(false);
 
-    props.authorization(data)
-
-   }, [data]);
-
-  
   const register = () => {
     Axios({
       method: "POST",
@@ -52,8 +45,20 @@ function App(props) {
         withCredentials: true,
         url: "http://localhost:4000/user",
       }).then((res) => {
-        setData(!!res.data);
-        console.log(!!res.data);
+        console.log(`debug###${res.data}`)
+
+        Axios({
+          method: "POST",
+          data: {
+            username: loginUsername,
+            authorization: !!res.data,
+          },
+          withCredentials: true,
+          url: "http://localhost:4000/auth",
+        }).then((res) => { console.log(res.data.authorization)
+          props.authorization(res.data.authorization)
+        });
+
       });
     });
   };
@@ -89,11 +94,9 @@ function App(props) {
           value={loginPassword}
           onChange={(e) => setLoginPassword(e.target.value)}
         />
-        <button onClick={login}>Login</button>
+        <button onClick={()=>{login()}}>Login</button>
       </div>
     </div>
-
-
         {data ? <h1 style={{textAlign: "center", color: "green"}}>Zalogowany</h1> : <h1 style={{textAlign: "center", color: "red"}}>Niezalogowany</h1>}
     </>
   );

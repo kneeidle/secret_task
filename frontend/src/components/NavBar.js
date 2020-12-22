@@ -14,6 +14,7 @@ export default function NavBar() {
       <ul>
         <Link to="/tasks"><li>Tasks</li></Link>
         <Link to="/login"><li>Login</li></Link>
+        <Link to="/logout"><li>Logout</li></Link>
       </ul>
     </div>
 
